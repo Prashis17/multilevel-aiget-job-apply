@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+.env
+*.db
+*.sqlite
+browser-data/
+screenshots/
+generated/
+dist/
+build/
+

@@ -1,0 +1,64 @@
+app:
+  name: "AI Job Application Automation"
+  environment: "local"
+  log_level: "INFO"
+
+workflow:
+  mode: "manual_approval"
+  match_threshold: 0.72
+  max_retry_count: 3
+  checkpoint_namespace: "job_apply"
+
+limits:
+  max_applications_per_day: 20
+  max_emails_per_day: 40
+  email_rate_limit_seconds: 180
+
+job_search:
+  keywords:
+    - "AI Engineer"
+    - "Python Developer"
+    - "LangChain Engineer"
+  locations:
+    - "Remote"
+    - "Bengaluru"
+    - "Hyderabad"
+  work_modes:
+    - "remote"
+    - "hybrid"
+  portals:
+    - "linkedin"
+    - "naukri"
+    - "indeed"
+    - "wellfound"
+    - "foundit"
+    - "instahyre"
+    - "greenhouse"
+    - "lever"
+    - "ashby"
+  last_posted: "last_week"
+
+profile:
+  resume_path: "data/resumes/default.pdf"
+  portfolio_url: ""
+  github_url: ""
+  linkedin_url: ""
+  preferred_locations:
+    - "Remote"
+
+companies:
+  preferred: []
+  blacklisted: []
+
+llm:
+  provider: "openai"
+  model: "gpt-4o-mini"
+  temperature: 0.2
+  max_tokens: 1600
+
+browser:
+  headless: false
+  storage_dir: "browser-data"
+  screenshot_dir: "screenshots"
+  timeout_ms: 30000
+
