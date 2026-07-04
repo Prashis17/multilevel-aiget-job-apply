@@ -106,8 +106,7 @@ class WorkflowState(TypedDict, total=False):
 
 class CampaignRequest(BaseModel):
     profile: CandidateProfile
-    resume_text: str
+    resume_text: str = ""
     keywords: list[str] = []
     locations: list[str] = []
     approval_mode: ApprovalMode = ApprovalMode.manual_approval
-

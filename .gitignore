@@ -10,6 +10,6 @@ __pycache__/
 browser-data/
 screenshots/
 generated/
+data/
 dist/
 build/
-

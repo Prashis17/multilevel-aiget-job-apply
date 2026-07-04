@@ -6,6 +6,7 @@ from app.graphs.supervisor import build_supervisor_graph
 from app.repositories.applications import ApplicationRepository
 from app.repositories.jobs import JobRepository
 from app.schemas.workflow import CampaignRequest, JobLead, WorkflowState
+from app.services.resume_loader import load_resume_text
 
 router = APIRouter()
 
@@ -21,7 +22,7 @@ async def run_campaign(request: CampaignRequest) -> WorkflowState:
     initial_state: WorkflowState = {
         "campaign_id": "manual",
         "profile": request.profile.model_dump(mode="json"),
-        "resume_text": request.resume_text,
+        "resume_text": request.resume_text or load_resume_text(),
         "keywords": request.keywords,
         "locations": request.locations,
         "retry_count": 0,
@@ -57,4 +58,3 @@ async def list_jobs(session: AsyncSession = Depends(get_session)) -> list[dict]:
 @router.get("/analytics")
 async def analytics(session: AsyncSession = Depends(get_session)) -> dict[str, int]:
     return await ApplicationRepository(session).analytics()
-

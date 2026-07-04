@@ -39,7 +39,7 @@ job_search:
   last_posted: "last_week"
 
 profile:
-  resume_path: "data/resumes/default.pdf"
+  resume_path: "data/resumes/default_resume.pdf"
   portfolio_url: ""
   github_url: ""
   linkedin_url: ""
@@ -61,4 +61,3 @@ browser:
   storage_dir: "browser-data"
   screenshot_dir: "screenshots"
   timeout_ms: 30000
-
